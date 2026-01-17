@@ -467,6 +467,18 @@ section.visible {
 
 section:nth-child(2n) {
     background: rgba(26, 26, 26, 0.3);
+    position: relative;
+}
+
+section:nth-child(2n)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
+    box-shadow: 0 0 20px var(--glow-green);
 }
 
 section:nth-child(2n + 1) {
@@ -516,6 +528,40 @@ section:nth-child(2n + 1) {
 #about {
     padding-top: 8rem;
     margin-top: -5rem;
+}
+
+/* Experience Section */
+#experience {
+    position: relative;
+}
+
+#experience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(180deg, transparent, var(--matrix-green));
+    box-shadow: 0 0 20px var(--glow-green);
+}
+
+/* Education Section */
+#education {
+    position: relative;
+}
+
+#education::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(180deg, transparent, var(--matrix-green));
+    box-shadow: 0 0 20px var(--glow-green);
 }
 
 #my-image {
@@ -660,28 +706,30 @@ section:nth-child(2n + 1) {
     width: 100%;
     max-width: 1200px;
     padding: 2rem 0;
+    margin: 0 auto;
 }
 
 .timeline-box {
-    padding: 2rem;
+    padding: 2.5rem;
     width: 45%;
-    min-height: 200px;
+    min-height: 220px;
     position: relative;
-    margin-bottom: 3rem;
-    background: rgba(21, 21, 21, 0.6);
+    margin-bottom: 3.5rem;
+    background: rgba(21, 21, 21, 0.7);
     border: 1px solid var(--border-glow);
-    border-left: 4px solid var(--matrix-green);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 255, 156, 0.1);
+    border-left: 5px solid var(--matrix-green);
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 156, 0.15);
     backdrop-filter: blur(10px);
 }
 
 .timeline-box:hover {
-    transform: translateX(10px);
+    transform: translateX(10px) translateY(-5px);
     border-color: var(--matrix-green);
-    box-shadow: 0 0 30px var(--glow-green);
-    background: rgba(21, 21, 21, 0.8);
+    border-left-width: 6px;
+    box-shadow: 0 0 40px var(--glow-green), 0 5px 20px rgba(0, 255, 156, 0.2);
+    background: rgba(21, 21, 21, 0.9);
 }
 
 .timeline-box.left {
@@ -694,28 +742,6 @@ section:nth-child(2n + 1) {
     text-align: left;
 }
 
-.timeline-box::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: var(--matrix-green);
-    border-radius: 50%;
-    top: 30px;
-    z-index: 2;
-    box-shadow: 
-        0 0 0 4px var(--dark-bg),
-        0 0 0 6px var(--matrix-green),
-        0 0 20px var(--glow-green);
-}
-
-.timeline-box.left::after {
-    right: -12%;
-}
-
-.timeline-box.right::after {
-    left: -12%;
-}
 
 .timeline-conatiner,
 .timeline-container {
@@ -723,15 +749,17 @@ section:nth-child(2n + 1) {
 }
 
 .timeline-logo {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 1rem;
-    border-radius: 8px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.2rem;
+    border-radius: 10px;
     overflow: hidden;
-    border: 1px solid var(--border-glow);
+    border: 2px solid var(--border-glow);
     background: var(--dark-card);
-    padding: 8px;
+    padding: 10px;
     position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 156, 0.2);
 }
 
 .timeline-logo img {
@@ -739,24 +767,37 @@ section:nth-child(2n + 1) {
     height: 100%;
     object-fit: contain;
     filter: brightness(1.2);
+    transition: transform 0.3s ease;
+}
+
+.timeline-box:hover .timeline-logo {
+    border-color: var(--matrix-green);
+    box-shadow: 0 0 25px var(--glow-green);
+    transform: scale(1.05);
+}
+
+.timeline-box:hover .timeline-logo img {
+    transform: scale(1.1);
 }
 
 .experience-designation {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--matrix-green);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     text-shadow: 0 0 10px var(--glow-green);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    line-height: 1.3;
 }
 
 .experience-company-name {
-    margin: 0.5rem 0;
+    margin: 0.6rem 0;
     color: var(--neon-cyan);
     font-weight: 600;
-    font-size: 1.2rem;
-    text-shadow: 0 0 5px var(--glow-cyan);
+    font-size: 1.3rem;
+    text-shadow: 0 0 8px var(--glow-cyan);
+    letter-spacing: 0.5px;
 }
 
 .experience-duration {
@@ -765,17 +806,26 @@ section:nth-child(2n + 1) {
     font-size: 0.95rem;
     margin-bottom: 1rem;
     display: inline-block;
-    padding: 0.3rem 0.8rem;
-    background: rgba(0, 255, 156, 0.1);
+    padding: 0.4rem 1rem;
+    background: rgba(0, 255, 156, 0.15);
     border: 1px solid var(--border-glow);
     border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 156, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timeline-box:hover .experience-duration {
+    background: rgba(0, 255, 156, 0.25);
+    border-color: var(--matrix-green);
+    box-shadow: 0 0 15px var(--glow-green);
 }
 
 .experience-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-top: 1rem;
+    line-height: 1.8;
+    margin-top: 1.2rem;
+    padding-right: 0.5rem;
 }
 
 .experience-description a {
@@ -793,13 +843,13 @@ section:nth-child(2n + 1) {
 
 .timeline-divider {
     position: absolute;
-    width: 3px;
+    width: 4px;
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(180deg, var(--matrix-green), var(--neon-cyan));
-    border-radius: 2px;
+    border-radius: 3px;
     z-index: 1;
-    box-shadow: 0 0 10px var(--glow-green);
+    box-shadow: 0 0 15px var(--glow-green), 0 0 30px rgba(0, 255, 156, 0.3);
 }
 
 .car {
@@ -813,20 +863,31 @@ section:nth-child(2n + 1) {
 }
 
 .timeline-divider .timeline-traveller {
-    position: sticky;
-    top: 50%;
+    position: absolute;
+    top: 0;
     transform: translateY(-50%);
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     background: var(--dark-card);
-    border: 2px solid var(--matrix-green);
+    border: 3px solid var(--matrix-green);
     border-radius: 50%;
-    box-shadow: 0 0 20px var(--glow-green);
-    margin-left: -23px;
+    box-shadow: 0 0 25px var(--glow-green), 0 0 50px rgba(0, 255, 156, 0.4);
+    margin-left: -25px;
+    transition: top 0.1s ease-out;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 25px var(--glow-green), 0 0 50px rgba(0, 255, 156, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 35px var(--glow-green), 0 0 70px rgba(0, 255, 156, 0.6);
+    }
 }
 
 .timeline-divider i {
@@ -839,11 +900,12 @@ section:nth-child(2n + 1) {
 /* Portfolio Section */
 #portfolio-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     width: 100%;
     max-width: 1000px;
     padding: 2rem;
+    justify-items: center;
 }
 
 .portfolio-image-container {
@@ -855,6 +917,8 @@ section:nth-child(2n + 1) {
     background: var(--dark-card);
     aspect-ratio: 4/3;
     box-shadow: 0 0 15px rgba(0, 255, 156, 0.1);
+    max-width: 280px;
+    margin: 0 auto;
 }
 
 .portfolio-image-container:hover {
@@ -869,6 +933,7 @@ section:nth-child(2n + 1) {
     object-fit: cover;
     transition: transform 0.5s ease, filter 0.5s ease;
     filter: grayscale(50%) brightness(0.8);
+    max-height: 200px;
 }
 
 .portfolio-image-container:hover img {
@@ -881,9 +946,9 @@ section:nth-child(2n + 1) {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.7), transparent);
     color: var(--matrix-green);
-    padding: 2rem;
+    padding: 1.5rem;
     transform: translateY(100%);
     transition: transform 0.3s ease;
     border-top: 2px solid var(--matrix-green);
@@ -896,11 +961,12 @@ section:nth-child(2n + 1) {
 
 .portfolio-details p {
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     margin: 0;
     text-shadow: 0 0 10px var(--glow-green);
     text-transform: uppercase;
     letter-spacing: 1px;
+    line-height: 1.4;
 }
 
 /* Certification Section */
