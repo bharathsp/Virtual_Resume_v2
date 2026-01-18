@@ -1181,52 +1181,400 @@ section:nth-child(2n + 1) {
 .twenty-percent { width: 20%; height: inherit; }
 
 /* Responsive Design */
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
-    #my-name {
-        font-size: 3rem;
+    /* Base adjustments */
+    body {
+        cursor: default;
+        font-size: 14px;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .cursor-glow {
+        display: none;
+    }
+    
+    /* Navigation */
+    nav {
+        padding: 0.5rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
     }
     
     .horizontal-list {
+        gap: 0.5rem;
+        padding: 0.8rem 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .horizontal-list li a {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        min-width: auto;
+        display: block;
+        -webkit-tap-highlight-color: rgba(0, 255, 156, 0.2);
+    }
+    
+    /* Improve touch targets */
+    .nav-menu li a {
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Hero Section */
+    #body-header {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 1rem 3rem;
+    }
+    
+    #my-name {
+        font-size: 2.5rem;
+        margin: 0.5rem 0;
+        letter-spacing: 0.05em;
+    }
+    
+    .terminal-intro {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .role-text {
+        font-size: 0.9rem;
+        margin: 1rem 0;
+        line-height: 1.6;
+    }
+    
+    .role-tag {
+        display: block;
+        margin: 0.3rem 0;
+    }
+    
+    .skills-typing {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+    
+    .social-icons {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .social-icons li a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    /* Section Headings */
+    .section-heading {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-heading span:first-child {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .section-heading span:last-child {
+        font-size: 1.8rem;
+        letter-spacing: 0.1em;
+    }
+    
+    /* About Section */
+    #about {
+        padding: 3rem 1rem;
+        margin-top: 0;
+    }
+    
+    #my-image {
+        height: 150px;
+        width: 150px;
+        margin-bottom: 1.5rem;
+    }
+    
+    #about-para {
+        padding: 1.5rem;
+        font-size: 0.95rem;
+        margin: 0 1rem;
+    }
+    
+    #about-para::before {
+        top: 15px;
+        left: 15px;
+        font-size: 1rem;
+    }
+    
+    #about-para p {
+        padding-left: 1.5rem;
+    }
+    
+    /* Skills Section */
+    .skills-display {
+        grid-template-columns: 1fr;
         gap: 1rem;
         padding: 1rem;
     }
     
-    .timeline-box {
-        width: 90%;
-        left: 5% !important;
+    .skill-progress {
+        height: 50px;
     }
     
-    .timeline-box::after {
-        display: none;
+    .skill-name span {
+        font-size: 0.85rem;
+    }
+    
+    /* Timeline / Experience & Education */
+    .timeline {
+        padding: 1rem 0;
+    }
+    
+    .timeline-box {
+        width: 95% !important;
+        left: 2.5% !important;
+        padding: 1.5rem;
+        min-height: auto;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-box.left,
+    .timeline-box.right {
+        left: 2.5% !important;
+        text-align: left;
     }
     
     .timeline-divider {
         display: none;
     }
     
-    .skills-display {
+    .timeline-logo {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .experience-designation {
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+        letter-spacing: 1px;
+    }
+    
+    .experience-company-name {
+        font-size: 1.1rem;
+        margin: 0.4rem 0;
+    }
+    
+    .experience-duration {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .experience-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-top: 0.8rem;
+    }
+    
+    /* Portfolio Section */
+    #portfolio {
+        padding: 3rem 1rem;
+    }
+    
+    #portfolio-container {
         grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1rem 0.5rem;
+        max-width: 100%;
+    }
+    
+    .portfolio-image-container {
+        max-width: 100%;
+        aspect-ratio: 4/3;
+        margin: 0;
+    }
+    
+    .portfolio-image-container img {
+        max-height: 180px;
+    }
+    
+    .portfolio-details {
+        padding: 1.2rem;
+    }
+    
+    .portfolio-details p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    /* Improve touch interactions */
+    .portfolio-image-container:active,
+    .certification-image-container:active {
+        transform: scale(0.98);
+    }
+    
+    /* Certification Section */
+    #certification {
+        padding: 3rem 1rem;
+    }
+    
+    #certification-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 1rem 0.5rem;
+        max-width: 100%;
+    }
+    
+    .certification-image-container {
+        aspect-ratio: 4/3;
+        margin: 0;
+    }
+    
+    .certification-details {
+        padding: 1.2rem;
+    }
+    
+    .certification-details p {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    /* Contact Section */
+    #contact {
+        padding: 3rem 1rem;
+    }
+    
+    #my-details-container {
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    #my-details-container h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    #my-details-container p {
+        font-size: 0.9rem;
+    }
+    
+    .my-details-info-container {
+        padding: 1rem;
+        font-size: 0.9rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .my-details-info-container i {
+        font-size: 1.2rem;
+    }
+    
+    #contact .social-icons {
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+    
+    /* Section spacing */
+    section {
+        padding: 3rem 1rem;
+    }
+    
+    section#skills {
+        padding: 3rem 0.5rem;
+    }
+    
+    .mb75px {
+        margin-bottom: 40px;
+    }
+    
+    .mb50px {
+        margin-bottom: 30px;
+    }
+    
+    /* Improve readability on mobile */
+    .text-align-justify {
+        text-align: left;
+    }
+    
+    /* Better spacing for timeline boxes */
+    .timeline-box:hover {
+        transform: translateY(-3px);
+    }
+    
+    /* Skills section mobile improvements */
+    #skills {
+        padding: 3rem 0.5rem;
+    }
+    
+    /* Experience and Education sections */
+    #experience,
+    #education {
+        padding: 3rem 0.5rem;
+    }
+    
+    /* Prevent horizontal scroll */
+    html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+    
+    * {
+        max-width: 100%;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    #my-name {
+        font-size: 2rem;
+    }
+    
+    .role-text {
+        font-size: 0.8rem;
+    }
+    
+    .section-heading span:last-child {
+        font-size: 1.5rem;
+    }
+    
+    .horizontal-list {
+        gap: 0.3rem;
+        padding: 0.6rem 0.3rem;
+    }
+    
+    .horizontal-list li a {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.4rem;
+    }
+    
+    .timeline-box {
+        padding: 1.2rem;
+    }
+    
+    .experience-designation {
+        font-size: 1.1rem;
+    }
+    
+    .experience-company-name {
+        font-size: 1rem;
     }
     
     #portfolio-container,
     #certification-container {
-        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem;
     }
     
-    .section-heading span {
-        font-size: 1.8rem;
-    }
-    
-    .role-text {
-        font-size: 1rem;
-    }
-    
-    body {
-        cursor: default;
-    }
-    
-    .cursor-glow {
-        display: none;
+    .portfolio-image-container img,
+    .certification-image-container img {
+        max-height: 150px;
     }
 }
 

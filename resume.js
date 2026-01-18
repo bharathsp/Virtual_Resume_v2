@@ -166,6 +166,11 @@ window.addEventListener("scroll", checkScroll);
 
 // Timeline Traveller Animation - Move icons along with scroll
 function updateTimelineTravellers() {
+    // Don't run on mobile where timeline divider is hidden
+    if (window.innerWidth <= 768) {
+        return;
+    }
+    
     var timelineDividers = document.querySelectorAll('.timeline-divider');
     
     timelineDividers.forEach(function(divider) {
